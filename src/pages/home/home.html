@@ -13,13 +13,19 @@
   <ion-content>
     <ion-list>
       <ion-list-header>Ma position</ion-list-header>
+      <ion-item *ngIf="maPosition">
+          <h2 class="location">{{ maPosition.name }}, {{ maPosition.sys.country }}</h2>
+          <div class="icon"><img src="{{imgWeather}}" /></div>
+          <h4 class="desc">{{ maPosition.weather[0].description | uppercase }}</h4>
+          <h1 class="temp">{{ maPosition.main.temp }} &deg;C</h1>
+        </ion-item>
     </ion-list>
 
     <ion-list *ngIf="cities.length > 0">
       <ion-list-header>Favoris</ion-list-header>
       <ion-item *ngFor="let city of cities">
         <h2 class="location">{{ city.name }}, {{ city.sys.country }}</h2>
-        <div class="icon"><img src="{{imgWeather}}" /></div>
+        <div class="icon"><img src="{{imgWeather}}{{city.weather[0].icon}}.png" /></div>
         <h4 class="desc">{{ city.weather[0].description | uppercase }}</h4>
         <h1 class="temp">{{ city.main.temp }} &deg;C</h1>
       </ion-item>

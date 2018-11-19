@@ -29,7 +29,6 @@ export class AddCityPage {
     // Call the weather service and send the json if there is one
     this.weatherService.weatherByCity(this.city).subscribe((res) => {
       this.weather = res;
-      // this.imgWeather = "http://openweathermap.org/img/w/" + res.weather[0].icon + ".png";
       console.log(this.weather);
       this.view.dismiss(this.weather);
     });

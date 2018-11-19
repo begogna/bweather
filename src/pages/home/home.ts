@@ -19,13 +19,21 @@ export class HomePage implements OnInit, OnDestroy {
     private weatherService: WeatherServiceProvider,
     private modalController: ModalController,
     private storage: Storage
-  ) {
-    // this.weatherService.localWeather();
-  }
+  ) {}
 
-  cities = new Array<any>();
+  private maPosition;
+  private cities = new Array<any>();
+  private imgWeather = "http://openweathermap.org/img/w/";
 
   ngOnInit() {
+
+    // // get weather in current position
+    // this.maPosition = this.weatherService.localWeather().subscribe(res => {
+    //   this.maPosition = res;
+    //   console.log("local weather ", res);
+    // });
+
+
     // Fill the table of cities from the storage
     this.storage.get("cities").then(val => {
       console.log("The stored cities are", val);
