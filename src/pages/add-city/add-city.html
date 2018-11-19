@@ -1,0 +1,19 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add city</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="closeModal()">Close</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-list>
+  <ion-item>
+    <ion-label color="primary" floating>Add city</ion-label>
+    <ion-input #inputCity [(ngModel)]="city" (keyup.enter)="closeModal()"></ion-input>
+  </ion-item>
+</ion-list></ion-content>

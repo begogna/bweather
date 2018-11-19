@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>bWeather</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openModalAddCity()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-content>
+    <ion-list>
+      <ion-list-header>Ma position</ion-list-header>
+    </ion-list>
+
+    <ion-list *ngIf="cities.length > 0">
+      <ion-list-header>Favoris</ion-list-header>
+      <ion-item *ngFor="let city of cities">
+        <h2 class="location">{{ city.name }}, {{ city.sys.country }}</h2>
+        <div class="icon"><img src="{{imgWeather}}" /></div>
+        <h4 class="desc">{{ city.weather[0].description | uppercase }}</h4>
+        <h1 class="temp">{{ city.main.temp }} &deg;C</h1>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-content>
